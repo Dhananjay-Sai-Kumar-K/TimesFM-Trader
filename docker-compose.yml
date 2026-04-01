@@ -1,3 +1,4 @@
+version: '3.8'
 services:
   postgres:
     image: postgres:16
@@ -16,7 +17,7 @@ services:
       - "6379:6379"
 
   backend:
-    build: ./backend
+    build: .
     ports:
       - "8000:8000"
     depends_on:
@@ -26,8 +27,7 @@ services:
       DATABASE_URL: postgresql://user:pass@postgres/market_db
       REDIS_URL: redis://redis:6379
     volumes:
-      - ./backend:/app/backend  # for hot reload during development
-    command: uvicorn backend.api:app --host 0.0.0.0 --port 8000 --reload
+      - ./backend:/app/backend  # for development, remove in prod
 
   frontend:
     build: ./frontend
