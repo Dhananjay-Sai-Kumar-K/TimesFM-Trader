@@ -1,0 +1,22 @@
+# Python
+__pycache__/
+*.pyc
+.env
+venv/
+*.db
+*.sqlite3
+
+# Node
+node_modules/
+build/
+
+# IDE
+.vscode/
+.idea/
+
+# Secrets
+*.key
+*.pem
+
+# Docker
+*.log
